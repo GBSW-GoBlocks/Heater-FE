@@ -10,9 +10,10 @@ import faceHot from '../assets/figma/face-overheat.png'
 type Props = {
   state: string
   showPlus: boolean
+  plusText: string
 }
 
-export default function Scene({ state, showPlus }: Props) {
+export default function Scene({ state, showPlus, plusText }: Props) {
   let face = faceNormal
   if (state === 'off') face = faceOff
   if (state === 'low') face = faceLow
@@ -41,7 +42,7 @@ export default function Scene({ state, showPlus }: Props) {
         </div>
       )}
       {state === 'hot' && <div className="warning">⚠ 과열</div>}
-      {showPlus && <div className="plus">+15°</div>}
+      {showPlus && <div className="plus">{plusText}</div>}
     </div>
   )
 }

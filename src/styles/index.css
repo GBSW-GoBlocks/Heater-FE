@@ -1,0 +1,13 @@
+/* 디자인 D — Cozy Game UI (밤의 오두막 + 모닥불)
+ *
+ * 불러오는 순서가 곧 캐스케이드 순서다. responsive 는 항상 마지막.
+ */
+@import './tokens.css';
+@import './base.css';
+@import './header.css';
+@import './scene.css';
+@import './main.css';
+@import './records.css';
+@import './about.css';
+@import './animations.css';
+@import './responsive.css';

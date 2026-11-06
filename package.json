@@ -9,14 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.106.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router": "^8.5.1",
+    "viem": "^2.57.16",
+    "wagmi": "^3.7.11"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^4.4.0",
-    "typescript": "~5.8.0",
+    "typescript": "~5.9",
     "vite": "^6.3.0"
   }
 }

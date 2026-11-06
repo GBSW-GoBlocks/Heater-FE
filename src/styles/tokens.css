@@ -1,0 +1,54 @@
+/* =========================================================
+   디자인 토큰
+   ========================================================= */
+
+:root {
+  /* 배경 */
+  --bg-night: #1e1a24;
+  --bg-night-2: #2a2019;
+
+  /* 나무판 패널 */
+  --wood: #5a3e2b;
+  --wood-dark: #3b2718;
+  --wood-light: #7a5638;
+  --wood-text: #fff3dc;
+  --wood-sub: #e8d3b0;
+
+  /* 종이 / 양피지 */
+  --paper: #f3e3c3;
+  --paper-text: #3b2a1e;
+  --paper-sub: #7a5a40;
+  --paper-accent: #8a3b12;
+
+  /* 불빛 포인트 */
+  --flame: #f28a2e;
+  --amber: #ffb547;
+
+  /* 상태 색 */
+  --c-off: #8c857d;
+  --c-low: #a8432f;
+  --c-normal: #f28a2e;
+  --c-hot: #ff5a3c;
+
+  /* 형태 */
+  --r-panel: 18px;
+  --r-btn: 14px;
+  --border: 3px solid var(--wood-dark);
+  --shadow: 0 4px 0 var(--wood-dark);
+  --shadow-press: 0 1px 0 var(--wood-dark);
+
+  /* 나뭇결 (이미지 없이 그라디언트로) */
+  --grain: repeating-linear-gradient(
+    176deg,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 2px,
+    rgba(0, 0, 0, 0.05) 2px,
+    rgba(0, 0, 0, 0.05) 7px,
+    transparent 7px,
+    transparent 15px
+  );
+
+  /* 폰트 */
+  --font-title: 'Jua', 'Gowun Dodum', 'Apple SD Gothic Neo', sans-serif;
+  --font-body: 'Gowun Dodum', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}

@@ -1,21 +1,20 @@
-type Props = {
-  page: string
-  connect: () => void
-}
+import { NavLink } from 'react-router'
+import type { Heater } from '@/heater/types'
+import WalletButton from './WalletButton'
 
-export default function Header({ page, connect }: Props) {
+/** 현재 탭이면 'active' — 나무 탭이 앞으로 튀어나온다 */
+const tab = ({ isActive }: { isActive: boolean }) => (isActive ? 'active' : '')
+
+export default function Header({ heater }: { heater: Heater }) {
   return (
     <header className="header">
-      <a href="#/" className="logo">히터</a>
+      <NavLink to="/" className="logo">히터</NavLink>
       <nav>
-        <a href="#/" className={page === 'main' ? 'active' : ''}>화로</a>
-        <a href="#/records" className={page === 'records' ? 'active' : ''}>기록</a>
-        <a href="#/about" className={page === 'about' ? 'active' : ''}>소개</a>
+        <NavLink to="/" end className={tab}>화로</NavLink>
+        <NavLink to="/records" className={tab}>기록</NavLink>
+        <NavLink to="/about" className={tab}>소개</NavLink>
       </nav>
-      {/* 지갑 연결은 현우가 붙일 예정 */}
-      <button className="wallet-btn" onClick={connect}>
-        <span className="coin">🪙</span> 지갑 연결
-      </button>
+      <WalletButton heater={heater} />
     </header>
   )
 }

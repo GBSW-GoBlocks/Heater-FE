@@ -1,0 +1,108 @@
+/* =========================================================
+   소개 - 튜토리얼 카드
+   ========================================================= */
+.about > p {
+  font-size: 17px;
+  color: var(--wood-sub);
+}
+
+.about .box {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.about .box p {
+  margin: 0;
+}
+
+.tutorial {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  counter-reset: tut;
+}
+
+.tutorial li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 14px 16px;
+  text-align: center;
+  background: var(--paper);
+  color: var(--paper-text);
+  border: 3px solid var(--wood-dark);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  counter-increment: tut;
+}
+
+.tutorial li::before {
+  content: 'STEP ' counter(tut);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 10px;
+  border: 2px solid var(--wood-dark);
+  border-radius: 999px;
+  background: var(--amber);
+  font-family: var(--font-title);
+  font-size: 12px;
+  color: var(--paper-text);
+  white-space: nowrap;
+}
+
+.tut-icon {
+  font-size: 34px;
+}
+
+/* ---------- 소개: 연결 정보 ---------- */
+.info-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--wood-light);
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list span {
+  min-width: 100px;
+  font-size: 14px;
+  color: var(--wood-sub);
+}
+
+.info-list b {
+  font-weight: normal;
+  font-family: monospace;
+  color: var(--wood-text);
+}
+
+.info-list a {
+  color: var(--amber);
+  text-decoration: underline;
+}
+
+.about .box .small {
+  margin: 0;
+  font-size: 14px;
+  color: var(--wood-sub);
+}

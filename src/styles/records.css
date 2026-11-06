@@ -1,0 +1,264 @@
+/* =========================================================
+   기록
+   ========================================================= */
+.records h2,
+.about h2 {
+  margin: 8px 0 18px;
+  font-size: 30px;
+  color: var(--amber);
+  text-shadow: 0 3px 0 var(--wood-dark);
+}
+
+.box {
+  position: relative;
+  padding: 18px;
+  background: var(--grain), var(--wood);
+  border: var(--border);
+  border-radius: var(--r-panel);
+  box-shadow: var(--shadow), inset 0 2px 0 var(--wood-light);
+}
+
+.box h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--wood-text);
+}
+
+.records .box {
+  margin-bottom: 16px;
+}
+
+/* 업적 카드 */
+.records .my:has(.achv-icon),
+.stat-list .box:has(.achv-icon) {
+  padding-left: 76px;
+  min-height: 56px;
+}
+
+.achv-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--amber);
+  font-size: 22px;
+  box-shadow: 0 3px 0 var(--wood-dark);
+}
+
+.records .my p {
+  margin: 0;
+}
+
+.records .my b {
+  font-family: var(--font-title);
+  font-weight: normal;
+  font-size: 24px;
+  color: var(--amber);
+}
+
+.stat-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+}
+
+.stat-list h3 {
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: var(--wood-sub);
+}
+
+.stat-list b {
+  font-family: var(--font-title);
+  font-weight: normal;
+  font-size: 28px;
+  color: var(--amber);
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+}
+
+/* 투입 이력 - 양피지 일지 */
+.log-box table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--paper);
+  color: var(--paper-text);
+  border: 2px solid var(--wood-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.log-box th {
+  padding: 10px 12px 8px;
+  text-align: left;
+  font-family: var(--font-title);
+  font-weight: normal;
+  color: var(--paper-sub);
+  border-bottom: 2px dashed #c9b28a;
+}
+
+.log-box td {
+  padding: 8px 12px;
+  border-bottom: 1px dashed #d8c39c;
+}
+
+.log-box td:first-child {
+  font-family: monospace;
+}
+
+.log-box td:nth-child(3) {
+  color: var(--paper-accent);
+  font-weight: bold;
+}
+
+.empty {
+  padding: 18px;
+  text-align: center;
+  color: var(--paper-sub);
+}
+
+/* 기여자 랭킹 */
+.ranking {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ranking li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--paper);
+  color: var(--paper-text);
+  border: 2px solid var(--wood-dark);
+  border-radius: 12px;
+  box-shadow: 0 3px 0 var(--wood-dark);
+  font-family: monospace;
+}
+
+.ranking li.empty {
+  justify-content: center;
+  font-family: var(--font-body);
+}
+
+.ranking .num {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--wood-dark);
+  border-radius: 50%;
+  background: #e8d3b0;
+  font-family: var(--font-title);
+  font-size: 14px;
+}
+
+/* 1~3위 메달 */
+.ranking .rank-1,
+.ranking .rank-2,
+.ranking .rank-3 {
+  border: none;
+  background: none;
+  font-size: 22px;
+}
+
+.ranking .count {
+  margin-left: auto;
+  font-family: var(--font-title);
+  color: var(--paper-accent);
+}
+
+/* ---------- 기록: 소제목 / 내 기록 강조 ---------- */
+.records h3 .sub {
+  margin-left: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--wood-sub);
+}
+
+.log-box tr.is-me td {
+  background: #ffe8bd;
+  font-weight: bold;
+}
+
+.ranking li.is-me {
+  background: var(--amber);
+  box-shadow: 0 3px 0 var(--wood-dark), 0 0 0 2px var(--amber);
+}
+
+/* ---------- 불의 생존 기록 ---------- */
+.fire-box .empty {
+  margin: 0;
+  color: var(--wood-sub);
+}
+
+.fire-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fire-list li {
+  display: grid;
+  grid-template-columns: 48px 1fr 1fr 1.1fr 1.2fr;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--paper);
+  color: var(--paper-text);
+  border: 2px solid var(--wood-dark);
+  border-radius: 12px;
+  box-shadow: 0 3px 0 var(--wood-dark);
+  font-size: 14px;
+}
+
+.fire-id {
+  font-family: var(--font-title);
+  color: var(--paper-sub);
+}
+
+.fire-life {
+  font-family: var(--font-title);
+  color: var(--paper-accent);
+}
+
+.fire-stokes,
+.fire-date {
+  color: var(--paper-sub);
+}
+
+.fire-cause.burnout {
+  color: #a8220a;
+  font-weight: bold;
+}
+
+/* ---------- 체인 안내 ---------- */
+.chain-note {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--wood-sub);
+}
+
+.chain-note a {
+  color: var(--amber);
+  text-decoration: underline;
+}

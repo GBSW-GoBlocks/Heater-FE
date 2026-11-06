@@ -1,0 +1,77 @@
+/* =========================================================
+   기본 레이아웃
+   ========================================================= */
+
+html {
+  background: var(--bg-night-2);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1000px 500px at 50% -10%, #3a2a20 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-night) 0%, var(--bg-night-2) 100%);
+  color: var(--wood-text);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-title);
+  cursor: pointer;
+}
+
+h2,
+h3 {
+  font-family: var(--font-title);
+  font-weight: normal;
+}
+
+.app {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+}
+
+/* 공통 나무판 */
+.wood {
+  background: var(--grain), var(--wood);
+  border: var(--border);
+  border-radius: var(--r-panel);
+  box-shadow: var(--shadow), inset 0 2px 0 var(--wood-light);
+}
+
+.loading {
+  text-align: center;
+  margin-top: 100px;
+  font-family: var(--font-title);
+  font-size: 20px;
+}
+
+/* ---------- 읽기 실패 ---------- */
+.load-error {
+  margin-top: 80px;
+  text-align: center;
+  font-family: var(--font-title);
+}
+
+.load-error p {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.load-error .small {
+  font-family: var(--font-body);
+  word-break: break-all;
+  max-width: 560px;
+  margin: 0 auto 16px;
+}
+
+.load-error .more {
+  border: none;
+  font-size: 15px;
+}

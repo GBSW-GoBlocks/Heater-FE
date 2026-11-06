@@ -1,0 +1,339 @@
+/* =========================================================
+   화로 (메인)
+   ========================================================= */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 1. 온도 HUD - 나무 간판 */
+.temp-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding: 16px 22px 18px;
+  background: var(--grain), var(--wood);
+  border: var(--border);
+  border-radius: var(--r-panel);
+  box-shadow: var(--shadow), inset 0 2px 0 var(--wood-light);
+}
+
+.small-title {
+  margin: 0;
+  font-size: 14px;
+  color: var(--wood-sub);
+}
+
+.temp {
+  font-family: var(--font-title);
+  font-size: 60px;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 3px 0 var(--wood-dark);
+}
+
+.temp-box.off .temp { color: #d6cfc7; }
+.temp-box.low .temp { color: #ff8a6a; }
+.temp-box.normal .temp { color: var(--amber); }
+.temp-box.hot .temp { color: #ff8a6a; }
+
+.status {
+  flex: 1;
+  min-width: 200px;
+}
+
+.status p {
+  margin: 8px 0 0;
+  color: var(--wood-text);
+  font-size: 16px;
+}
+
+/* 상태 뱃지 - 아이콘 + 글자 */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 14px;
+  border: var(--border);
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-size: 16px;
+  box-shadow: 0 3px 0 var(--wood-dark);
+}
+
+.badge.off { background: #cfc6ba; color: #3b2a1e; }
+.badge.low { background: var(--c-low); color: var(--wood-text); }
+.badge.normal { background: var(--c-normal); color: var(--paper-text); }
+.badge.hot {
+  background: var(--c-hot);
+  color: #2a1510;
+  animation: slow-blink 1.6s infinite;
+}
+
+/* 온도 막대 - 게임 게이지 (칸 나뉨 + 과열 구간 빗금) */
+.bar {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  border: var(--border);
+  border-radius: 999px;
+  background: #2a1d14;
+  overflow: hidden;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.bar-fill {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-low), var(--flame) 55%, var(--amber));
+  transition: width 1s linear;
+}
+
+/* 10칸으로 나누는 눈금 */
+.bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(10% - 2px),
+    rgba(59, 39, 24, 0.7) calc(10% - 2px),
+    rgba(59, 39, 24, 0.7) 10%
+  );
+  pointer-events: none;
+}
+
+/* 과열 구간 (기존 bar-line 위치부터 끝까지 빗금) */
+.bar-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-left: 2px solid var(--c-hot);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 90, 60, 0.45) 0,
+    rgba(255, 90, 60, 0.45) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* 3. 지피기 버튼 - 화면에서 가장 큰 게임 버튼 */
+.stoke-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stoke-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 460px;
+  min-height: 72px;
+  padding: 16px 24px;
+  border: var(--border);
+  border-radius: var(--r-btn);
+  background: linear-gradient(180deg, var(--amber) 0%, var(--flame) 100%);
+  color: var(--paper-text);
+  font-size: 26px;
+  box-shadow: 0 6px 0 var(--wood-dark), inset 0 3px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.stoke-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--wood-dark), inset 0 3px 0 rgba(255, 255, 255, 0.35);
+}
+
+.stoke-btn:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 var(--wood-dark), inset 0 3px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* 비활성 - 회색 나무 */
+.stoke-btn:disabled {
+  background: var(--grain), #6e625a;
+  color: var(--paper);
+  cursor: not-allowed;
+  box-shadow: 0 4px 0 var(--wood-dark);
+}
+
+.btn-icon {
+  font-size: 26px;
+}
+
+/* 쿨다운 시각 - 작은 종이 쪽지 */
+.cooldown {
+  display: inline-block;
+  margin: 16px 0 0;
+  padding: 8px 16px;
+  background: var(--paper);
+  color: var(--paper-text);
+  border: 2px solid var(--wood-dark);
+  border-radius: 6px;
+  box-shadow: 0 3px 0 var(--wood-dark);
+  transform: rotate(-1.5deg);
+}
+
+.cooldown b {
+  color: var(--paper-accent);
+}
+
+.small {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: var(--wood-sub);
+}
+
+.ok,
+.err {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 6px 14px;
+  border: 2px solid var(--wood-dark);
+  border-radius: 999px;
+  font-family: var(--font-title);
+}
+
+.ok { background: #bfe6b0; color: #1f3a17; }
+.err { background: #ffd2c6; color: #6a1e10; }
+
+/* 4. 기록 요약 - 인벤토리 슬롯 4칸 */
+.record-box {
+  padding: 16px;
+  background: var(--grain), var(--wood);
+  border: var(--border);
+  border-radius: var(--r-panel);
+  box-shadow: var(--shadow), inset 0 2px 0 var(--wood-light);
+}
+
+.record-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.record-row > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 14px 8px;
+  text-align: center;
+  background: #2f2016;
+  border: 3px solid var(--wood-dark);
+  border-radius: 14px;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.record-row span {
+  font-size: 13px;
+  color: var(--wood-sub);
+}
+
+.record-row b {
+  font-family: var(--font-title);
+  font-weight: normal;
+  font-size: 22px;
+  color: var(--amber);
+  font-variant-numeric: tabular-nums;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 14px;
+  border: 2px solid var(--wood-dark);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--paper-text);
+  font-family: var(--font-title);
+  box-shadow: 0 3px 0 var(--wood-dark);
+}
+
+/* ---------- 꺼지기까지 남은 시간 ---------- */
+.countdown-line {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--wood-sub);
+}
+
+.countdown-line b {
+  font-family: var(--font-title);
+  font-weight: normal;
+  color: var(--amber);
+}
+
+.countdown-line.urgent {
+  color: #ffc9bb;
+  animation: slow-blink 1.6s infinite;
+}
+
+.countdown-line.urgent b {
+  color: var(--c-hot);
+}
+
+/* ---------- 투입 전 미리보기 (previewStoke) ---------- */
+.preview {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 6px 14px;
+  border: 2px solid var(--wood-dark);
+  border-radius: 999px;
+  background: #2f2016;
+  color: var(--wood-sub);
+  font-size: 14px;
+}
+
+.preview b {
+  font-family: var(--font-title);
+  font-weight: normal;
+  color: var(--amber);
+}
+
+.preview.warn {
+  background: #5a3a12;
+  color: #ffe2b0;
+}
+
+.preview.danger {
+  background: var(--c-hot);
+  color: #2a1510;
+}
+
+.preview.danger b {
+  color: #2a1510;
+}
+
+/* ---------- 트랜잭션 링크 ---------- */
+.tx-link {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--wood-sub);
+  text-decoration: underline;
+}
+
+.tx-link:hover {
+  color: var(--amber);
+}
+
+/* ---------- 마지막 투입자 ---------- */
+.last-stoker {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--wood-sub);
+}
+
+.last-stoker code {
+  font-family: monospace;
+  color: var(--wood-text);
+}

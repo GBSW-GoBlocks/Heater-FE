@@ -1,0 +1,77 @@
+/* =========================================================
+   반응형
+   ========================================================= */
+@media (max-width: 800px) {
+  .record-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-list,
+  .two {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 0 12px 140px;
+  }
+  .header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .logo {
+    margin-bottom: 0;
+    font-size: 22px;
+  }
+  .wallet-btn {
+    margin: 0 0 0 auto;
+  }
+  .header nav {
+    order: 3;
+    width: 100%;
+  }
+  .header nav a {
+    flex: 1;
+    text-align: center;
+    padding: 8px 6px 6px;
+  }
+  .main {
+    gap: 12px;
+  }
+  .temp-box {
+    padding: 10px 14px 12px;
+    gap: 4px 14px;
+  }
+  .temp {
+    font-size: 40px;
+  }
+  .status {
+    min-width: 0;
+  }
+  .status p {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .scene-frame {
+    padding: 6px;
+    border-radius: 18px;
+  }
+  .scene-frame .scene {
+    border-radius: 12px;
+  }
+  .stoke-btn {
+    min-height: 60px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .fire-list li {
+    grid-template-columns: 44px 1fr 1fr;
+    row-gap: 4px;
+  }
+  .fire-date {
+    grid-column: 2 / -1;
+    font-size: 12px;
+  }
+}
